@@ -1,10 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  -- Lade das Plugin intelligent, sobald eine Datei gelesen oder neu erstellt wird
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile", "VeryLazy" },
   
-  -- Hier kommen NUR die reinen Einstellungen rein (Lazy reicht diese automatisch weiter)
   opts = {
     auto_install = true,
     ensure_installed = {
@@ -17,11 +15,14 @@ return {
     incremental_selection = { enable = true },
   },
   
-  -- Die config-Funktion nimmt jetzt die opts von oben entgegen
   config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    local status_ok, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+    if not status_ok then
+      return
+    end
 
-    -- Deine globalen Neovim-Optionen
+    treesitter_configs.setup(opts)
+
     vim.opt.conceallevel = 2
     vim.opt.concealcursor = "nc"
   end,
