@@ -14,4 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 require("config.autocmds")
-
+vim.opt.number = true          -- Zeigt die absolute Zeilennummer der aktuellen Zeile
+vim.opt.relativenumber = true  -- Zeigt relative Nummern für alle anderen Zeilen
