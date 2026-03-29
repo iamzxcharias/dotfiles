@@ -1,0 +1,7 @@
+# include /home/da3mon/.config/kitty/kitty_gruvbox_theme/gruvbox_dark.conf
+
+
+# BEGIN_KITTY_THEME
+# Gruvbox Dark
+include current-theme.conf
+# END_KITTY_THEME
