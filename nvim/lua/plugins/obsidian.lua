@@ -8,7 +8,7 @@ return {
 
       -- Define your Obsidian workspace
       workspaces = {
-        { name = "personal", path = "~/Dokumente/Notizen" },
+        { name = "personal", path = "/home/zxch/Documents/iamzxcharias" },
       },
 
       -- Enable the Obsidian UI
